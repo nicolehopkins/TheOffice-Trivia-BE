@@ -17,7 +17,7 @@ CREATE TABLE categories (
 
 CREATE TABLE difficulty (
   id SERIAL PRIMARY KEY,
-  title VARCHAR NOT NULL
+  levels VARCHAR NOT NULL
 );
 
 CREATE TABLE questions (
@@ -28,3 +28,23 @@ CREATE TABLE questions (
   correctAnswer VARCHAR NOT NULL,
   incorrectAnswers TEXT []
 );
+
+INSERT INTO users (email, token, questionsAnswered) VALUES
+('user1@gmail.com', 'token1', ARRAY[""]),
+('user2@gmail.com', 'token2', ARRAY[""]),
+('user3@gmail.com', 'token3', ARRAY[""]);
+
+INSERT INTO categories (title) VALUES
+('season 1')
+('season 2')
+('season 3')
+
+INSERT INTO difficulty (title) VALUES
+('easy')
+('moderate')
+('difficult')
+
+INSERT INTO questions (category_id, difficulty_id, question, correctAnswer, incorrectAnswers) VALUES
+('1', '1', "Who was Pam engaged to when the show first aired?", "Roy", ARRAY["Kevin", "Jim", "Madge"])
+('2', '2', "What is Dwight's middle name?", "Kurt", ARRAY["Kevin", "Kean", "Karl"])
+('1', '3', "How did Dwight dispose of Sprikles' body?", "placed in the freezer", ARRAY["buried in the backyard", "placed in Angela's desk drawer", "burned on the farm"])
